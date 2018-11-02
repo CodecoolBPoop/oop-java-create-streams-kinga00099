@@ -2,7 +2,6 @@ package com.codecool;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.List;
 import java.util.function.Supplier;
@@ -64,7 +63,7 @@ public class Streams {
          * Create a stream containing the first ten elements of s4.
          */
 
-        Stream<Integer> s5 = s4.limit(10) /* ??? */;
+        Stream<Integer> s5 = s4.limit(10);
 
         /*
          * Create a stream containing the elements of the Fibonacci
@@ -74,14 +73,14 @@ public class Streams {
          */
 
         Supplier<Integer> fibSupp = new Fibonacci();
-        Stream<Integer> s6 = /* ??? */;
+        Stream<Integer> s6 = Stream.generate(fibSupp);
 
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
+        s1.forEach(System.out::println);
+        s2.forEach(System.out::println);
+        s3.forEach(System.out::println);
+        s4.forEach(System.out::println);
+        s5.forEach(System.out::println);
+        s6.forEach(System.out::println);
         System.out.println(l1);
-        System.out.println(s4);
-        System.out.println(s5);
-        System.out.println(s6);
     }
 }
