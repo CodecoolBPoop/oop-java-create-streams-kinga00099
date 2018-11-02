@@ -1,5 +1,6 @@
 package com.codecool;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.List;
@@ -13,22 +14,24 @@ public class Streams {
          */
 
         String[] a1 = {"one", "two", "three"};
-        Stream<String> s1 = /* ??? */;
+        Stream<String> s1 = Arrays.stream(a1);
 
         /*
          * Create a stream containing the Strings "one" , "two" and "three"
          * without using an array
          */
 
-        Stream<String> s2 = /* ??? */;
+        Stream<String> s2 = Stream.of("one","two","three");
 
         /*
          * Create a stream using a stream builder.
          */
 
-        Stream.Builder<String> b1 = /* ??? */;
-        /* ??? */
-        Stream<String> s3 = /* ??? */;
+        Stream.Builder<String> b1 = Stream.builder();
+        for (String num : a1){
+            b1.add(num);
+        }
+        Stream<String> s3 = b1.build();
 
         /*
          * Collect one of the above defined streams into a list.
@@ -71,5 +74,12 @@ public class Streams {
 
         Supplier<Integer> fibSupp = new Fibonacci();
         Stream<Integer> s6 = /* ??? */;
+
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+        System.out.println(s4);
+        System.out.println(s5);
+        System.out.println(s6);
     }
 }
