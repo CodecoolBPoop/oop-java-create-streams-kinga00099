@@ -2,6 +2,7 @@ package com.codecool;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.List;
 import java.util.function.Supplier;
@@ -39,7 +40,7 @@ public class Streams {
          * HINT: the keyword here is "collect"
          */
 
-        List<String> l1 = /* ??? */;
+        List<String> l1 = s1.collect(Collectors.toList());
 
         /*
          * Streams can be infinite.  We obviously cannot create such a
@@ -57,13 +58,13 @@ public class Streams {
 
         Integer twoToTheZeroth = 1;
         UnaryOperator<Integer> doubler = (Integer x) -> 2 * x;
-        Stream<Integer> s4 = /* ??? */;
+        Stream<Integer> s4 = Stream.iterate(twoToTheZeroth, doubler);
 
         /*
          * Create a stream containing the first ten elements of s4.
          */
 
-        Stream<Integer> s5 = s4. /* ??? */;
+        Stream<Integer> s5 = s4.limit(10) /* ??? */;
 
         /*
          * Create a stream containing the elements of the Fibonacci
@@ -78,6 +79,7 @@ public class Streams {
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
+        System.out.println(l1);
         System.out.println(s4);
         System.out.println(s5);
         System.out.println(s6);
